@@ -1,1 +1,3 @@
-pip install django
+django==5.2.3
+djangorestframework==3.20.0
+psycopg2-binary==2.9.7
