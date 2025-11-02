@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>Meu Perfil</h2>
+    <hr>
+    <p><strong>Usuário:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Data de cadastro:</strong> {{ user.date_joined|date:"d/m/Y H:i" }}</p>
+    <p><strong>Último login:</strong> {{ user.last_login|date:"d/m/Y H:i" }}</p>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">Voltar</a>
+</div>
+{% endblock %}

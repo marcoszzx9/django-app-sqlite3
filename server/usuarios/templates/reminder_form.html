@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="card p-4 mx-auto" style="max-width:600px;">
+  <h4>{% if rem %}Editar{% else %}Novo{% endif %} lembrete</h4>
+  <form method="post">{% csrf_token %}
+    <div class="mb-3">
+      <label>Título</label>
+      <input name="title" class="form-control" value="{{ rem.title|default:'' }}" required>
+    </div>
+    <div class="mb-3">
+      <label>Descrição</label>
+      <textarea name="description" class="form-control">{{ rem.description|default:'' }}</textarea>
+    </div>
+    {% if rem %}
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" name="done" {% if rem.done %}checked{% endif %}>
+      <label class="form-check-label">Feito</label>
+    </div>
+    {% endif %}
+    <button class="btn btn-primary">Salvar</button>
+    <a href="/" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

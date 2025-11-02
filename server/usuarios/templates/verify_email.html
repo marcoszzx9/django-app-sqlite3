@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow p-4 mx-auto" style="max-width:400px;">
+  <h3 class="text-center mb-3">Verificar E-mail</h3>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Usuário</label>
+      <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Código</label>
+      <input type="text" name="code" class="form-control" maxlength="6" required>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Confirmar</button>
+  </form>
+</div>
+{% endblock %}
